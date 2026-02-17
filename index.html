@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kibar Immobilien - Premium Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+	font-family:'Inter',sans-serif;
+	color:#222;
+	line-height:1.6;
+}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+/* ==== Colors ==== */
+.bg-primary{background:#0db1cd;}
+.bg-secondary{background:#ce011f;}
+.bg-accent{background:#df0122;}
+/* ==== Layout ==== */
+.sticky-header{
+	position:sticky;top:0;width:100%;z-index:1000;
+	transition:background .3s;
+	background:transparent;
+	padding:1rem 0;
+}
+.nav-container{
+	max-width:1200px;margin:auto;
+	display:flex;justify-content:space-between;align-items:center;
+	padding:0 2rem;
+}
+.logo{
+	font-weight:700;
+	font-size:1.5rem;
+	color:#0db1cd;
+}
+.nav-list{
+	display:flex;gap:2rem;
+}
+.nav-list a{
+	color:#fff;
+	font-weight:600;
+	transition:color .2s;
+}
+.nav-list a:hover{color:#ce011f;}
+.menu-toggle{
+	display:none;
+}
+.menu-toggle input{display:none;}
+.menu-toggle label{
+	cursor:pointer;
+	color:#fff;
+	font-size:1.5rem;
+}
+/* Mobile menu */
+@media(max-width:768px){
+	.nav-list{position:absolute;top:100%;right:0;background:#0db1cd;flex-direction:column;width:200px;background:rgba(13,177,205,0.9);display:none;}
+	.nav-list.show{display:flex;}
+	.menu-toggle{position:absolute;top:1rem;right:1rem;}
+}
+/* ==== Hero ==== */
+.hero{
+	height:100vh;
+	min-height:500px;
+	background:linear-gradient(135deg,#0db1cd,#ce011f,#df0122);
+	background-size:600% 600%;
+	animation:gradientShift 8s ease infinite;
+	display:flex;align-items:center;justify-content:center;
+	text-align:center;
+	color:#fff;
+	position:relative;
+	overflow:hidden;
+}
+@keyframes gradientShift{
+	0%{background-position:0% 50%;}
+	50%{background-position:100% 50%;}
+	100%{background-position:0% 50%;}
+}
+.hero-content{
+	max-width:800px;margin:auto;padding:0 1rem;
+}
+.hero-content h1{
+	font-size:4rem;
+	font-weight:700;
+	margin-bottom:1rem;
+	text-shadow:0 2px 6px rgba(0,0,0,0.4);
+}
+.hero-content .hero-sub{
+	font-size:1.2rem;
+	margin-bottom:2rem;
+	opacity:0.9;
+}
+.trust-badges{
+	display:flex;gap:1.5rem;margin-top:2rem;
+}
+.badge{
+	flex:1;text-align:center;
+	padding:0.8rem;
+	background:rgba(255,255,255,0.1);
+	border-radius:12px;
+	border:1px solid rgba(255,255,255,0.2);
+}
+.badge strong{display:block;margin-top:0.3rem;font-weight:600;}
+/* ==== Floating ==== */
+.floating{
+	animation:float 6s ease-in-out infinite;
+}
+@keyframes float{
+	0%,100%{transform:translateY(0);}
+	50%{transform:translateY(-15px);}
+}
+/* ==== Sections ==== */
+.section-title{
+	text-align:center;
+	margin:4rem 0 2rem;
+	font-size:2.5rem;
+	color:#0db1cd;
+}
+.advantages-grid,.services-grid{
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+	gap:2rem;
+	max-width:1200px;margin:auto;padding:0 2rem;
+}
+.advantage-card,.service-card{
+	background:rgba(255,255,255,0.15);
+	border-radius:16px;
+	padding:2rem;
+	backdrop-filter:blur(10px);
+	border:1px solid rgba(255,255,255,0.2);
+	transition:transform .3s,box-shadow .3s;
+}
+.advantage-card:hover,.service-card:hover{
+	transform:translateY(-8px);
+	box-shadow:0 12px 25px rgba(0,0,0,0.15);
+}
+.advantage-card i,.service-card i{
+	font-size:2rem;
+	color:#fff;margin-bottom:0.8rem;
+}
+.advantage-card h3,.service-card h4{
+	font-size:1.5rem;
+	margin-bottom:0.5rem;
+	color:#fff;
+}
+.advantage-card p,.service-card p{
+	font-size:1rem;
+	opacity:0.9;
+}
+.number{
+	font-size:3rem;
+	font-weight:700;
+	color:#0db1cd;
+	animation:count-up 2s forwards;
+}
+.label{
+	font-size:1rem;
+	color:#666;
+	margin-top:0.5rem;
+}
+/* Counter animation */
+@keyframes count-up{
+	0%{transform:translateY(20px);opacity:0;}
+	100%{transform:translateY(0);opacity:1;}
+}
+/* ==== Buttons ==== */
+.btn-primary{
+	display:inline-block;
+	background:#0db1cd;
+	color:#fff;
+	padding:0.9rem 1.8rem;
+	border-radius:12px;
+	font-weight:600;
+	transition:background .2s,transform .2s;
+}
+.btn-primary:hover{
+	background:#ce011f;
+	transform:translateY(-3px);
+}
+.btn-secondary{
+	display:inline-block;
+	background:transparent;
+	border:2px solid #fff;
+	color:#fff;
+	padding:0.9rem 1.8rem;
+	border-radius:12px;
+	margin-top:1rem;
+	transition:background .2s,transform .2s;
+}
+.btn-secondary:hover{
+	background:#fff;
+	color:#0db1cd;
+	transform:translateY(-3px);
+}
+/* ==== Footer ==== */
+footer{
+	text-align:center;
+	padding:2rem 0;
+	background:#f5f5f5;
+	font-size:0.9rem;
+	color:#666;
+}
+/* ==== Responsive ==== */
+@media(max-width:600px){
+	.hero-content h1{font-size:2.5rem;}
+	.hero-content .hero-sub{font-size:1rem;}
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var forms = document.querySelectorAll('form');
+  forms.forEach(function(form) {
+    if (form.querySelector('input[type="email"]') && form.querySelector('textarea')) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var fd = new FormData(form);
+        var data = {
+          name: fd.get('name') || fd.get('Name') || '',
+          email: fd.get('email') || fd.get('Email') || '',
+          phone: fd.get('phone') || fd.get('telefon') || '',
+          message: fd.get('message') || fd.get('nachricht') || '',
+          firma: 'Kibar Immobilien',
+          demo_url: window.location.href
+        };
+        var btn = form.querySelector('button[type="submit"], input[type="submit"]');
+        if (btn) btn.disabled = true;
+        fetch('https://6aa2-31-17-18-172.ngrok-free.app/webhook/kontakt-formular', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(res) {
+          alert(res.success ? 'Danke! Wir melden uns.' : 'Fehler: ' + res.message);
+          if (res.success) form.reset();
+        })
+        .catch(function() { alert('Fehler. Bitte kontakt@agentflowm.de kontaktieren.'); })
+        .finally(function() { if (btn) btn.disabled = false; });
+      });
+    }
+  });
+});
+</script>
+</head>
+<body>
+<header class="sticky-header">
+<div class="nav-container">
+<div class="logo">Kibar Immobilien</div>
+<div class="menu-toggle"><input type="checkbox" id="menu-toggle"><label for="menu-toggle"><i class="fas fa-bars"></i></label></div>
+<ul class="nav-list">
+<li><a href="#home">Start</a></li>
+<li><a href="#advantages">Vorteile</a></li>
+<li><a href="#services">Leistungen</a></li>
+<li><a href="#proof">Proof</a></li>
+<li><a href="#contact">Kontakt</a></li>
+</ul>
+</div>
+</header>
+
+<section id="home" class="hero">
+<div class="hero-content floating">
+<h1>Ihr Mehrwert<br>im besten Licht</h1>
+<p class="hero-sub">Professionelle Immobilienmakler in Hannover</p>
+<div class="trust-badges">
+<div class="badge"><strong>20+</strong>Jahre Erfahrung</div>
+<div class="badge"><strong>Schnell</strong>Abwicklung</div>
+<div class="badge"><strong>Vertraulich</strong>Diskretion</div>
+</div>
+</div>
+</section>
+
+<section id="advantages">
+<div class="section-title">Warum Kibar Immobilien?</div>
+<div class="advantages-grid">
+<div class="advantage-card"><i class="fas fa-check-circle"></i><h3>Mehr Geld</h3><p>Höhere Verkaufspreise für Ihre Immobilie</p></div>
+<div class="advantage-card"><i class="fas fa-check-circle"></i><h3>Weniger Stress</h3><p>Komplettservice von Besichtigung bis Schlüsselübergabe</p></div>
+<div class="advantage-card"><i class="fas fa-check-circle"></i><h3>Sicherheit</h3><p>Rechtssichere Verträge und transparente Prozesse</p></div>
+</div>
+</section>
+
+<section id="services" class="services-section">
+<div class="section-title">Unsere Leistungen</div>
+<div class="services-grid">
+<div class="service-card"><div class="circle bg-primary"></div><i class="fas fa-home"></i><h4>Wertanalyse</h4></div>
+<div class="service-card"><div class="circle bg-secondary"></div><i class="fas fa-eye"></i><h4>Marketing</h4></div>
+<div class="service-card"><div class="circle bg-accent"></div><i class="fas fa-key"></i><h4>Verhandlung</h4></div>
+<div class="service-card"><div class="circle bg-primary"></div><i class="fas fa-chart-line"></i><h4>Finanzierung</h4></div>
+<div class="service-card"><div class="circle bg-secondary"></div><i class="fas fa-lock"></i><h4>Rechtliches</h4></div>
+<div class="service-card"><div class="circle bg-accent"></div><i class="fas fa-mobile-alt"></i><h4>Digital</h4></div>
+</div>
+</section>
+
+<section id="proof" class="social-proof">
+<div class="numbers"><div class="number">20+</div><div class="label">Jahre Erfahrung</div></div>
+<div class="numbers"><div class="number">500+</div><div class="label">Zufriedene Kunden</div></div>
+<div class="numbers"><div class="number">150</div><div class="label">Vertriebene Projekte</div></div>
+</section>
+
+<section id="contact" class="contact-section">
+<div class="contact-content">
+<h2>Jetzt Beratung sichern</h2>
+<p>Rufen Sie uns an oder schicken Sie eine Nachricht.</p>
+<a href="tel:+49511123456" class="btn-primary">+49 511 123456</a>
+<a href="mailto:info@kibar-immobilien.de" class="btn-secondary">E‑Mail schreiben</a>
+</div>
+</section>
+
+<footer>
+<p>(c) 2026 Kibar Immobilien</p>
+</footer>
+
+<script>
+// IntersectionObserver for scroll reveal
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+observer.unobserve(entry.target);
+}
+});
+},{threshold:0.15});
+
+document.querySelectorAll('.reveal,.advantage-card,.service-card,.number,.trust-badge').forEach(el=>observer.observe(el));
+
+// Header scroll effect
+window.addEventListener('scroll',()=>{
+const header=document.querySelector('.sticky-header');
+if(window.scrollY>50){
+header.classList.add('scrolled');
+}else{
+header.classList.remove('scrolled');
+}
+});
+
+// Mobile menu toggle
+const toggle=document.getElementById('menu-toggle');
+const nav=document.querySelector('.nav-list');
+toggle.addEventListener('change',()=>{
+nav.classList.toggle('show',toggle.checked);
+});
+</script>
+
+<div id="wz-banner" style="position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a365d,#2563eb);color:#fff;padding:20px;text-align:center;z-index:99999;box-shadow:0 -4px 20px rgba(0,0,0,.3);font-family:sans-serif">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px">
+    <div style="flex:1;min-width:280px">
+      <p style="margin:0;font-size:18px;font-weight:600">Gefällt Ihnen diese Demo?</p>
+      <p style="margin:5px 0 0;font-size:14px;opacity:.9">Erstellt von <strong>AgentFlow</strong></p>
+    </div>
+    <div style="display:flex;gap:12px">
+      <a href="mailto:kontakt@agentflowm.de?subject=Interesse%20Webseite%20Kibar%20Immobilien" style="padding:12px 28px;background:#fff;color:#1a365d;text-decoration:none;border-radius:8px;font-weight:600">Kontakt</a>
+      <a href="https://agentflowm.de" target="_blank" style="padding:12px 28px;background:transparent;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;border:2px solid #fff">Mehr</a>
+    </div>
+  </div>
+  <p style="margin:15px 0 0;font-size:12px;opacity:.7">Demo bis 20.2.2026 | kontakt@agentflowm.de</p>
+</div>
+<div style="height:140px"></div>
+</body>
+</html>
